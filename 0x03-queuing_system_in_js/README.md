@@ -21,6 +21,12 @@ By completing this project, you will gain practical experience and understanding
 - All files should use the `.js` extension
 - Each file should end with a new line
 
+## Clone the repository
+
+```
+git clone <https://github.com/Muna-Saeed/alx-backend.git>
+cd queuing_system_in_js
+```
 ## Installation
 
 To install dependencies, run:
