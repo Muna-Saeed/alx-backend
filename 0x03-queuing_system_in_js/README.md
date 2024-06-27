@@ -39,28 +39,24 @@ npm install
 2. **Start Redis server:**
 
 ```
-  Copy code
   redis-server 
   ```
 3. **Redis Client Interface**
 Use Redis CLI to interact with Redis server:
 
 ```bash
-  Copy code
   redis-cli
   ```
 4. **Redis Client for Node.js**
 Redis client for Node.js is redis package:
 
 ```bash
-   Copy code
    npm install redis
    ```
 5. **Kue (Deprecated but still used)**
 Kue is a deprecated job queue for Node.js. Install with:
 
 ```bash
-   Copy code
    npm install kue
    ```
 ## Usage
