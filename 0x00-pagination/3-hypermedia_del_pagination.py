@@ -6,20 +6,22 @@ Deletion-resilient hypermedia pagination
 import csv
 from typing import List, Dict, Any
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Calculate the start and end indexes for a given page and page size.
-    
+
     Args:
         page (int): The current page number (1-indexed).
         page_size (int): The number of items per page.
-        
+
     Returns:
         Tuple[int, int]: A tuple containing the start index and end index.
     """
     start_index = (page - 1) * page_size
     end_index = start_index + page_size
     return (start_index, end_index)
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
@@ -51,19 +53,26 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper_index(
+            self, index: int = None,
+            page_size: int = 10
+            ) -> Dict[str, Any]:
         """
-        Get a page from the dataset with deletion-resilient hypermedia pagination.
-        
+        Get a page from the dataset with deletion-resilient
+        hypermedia pagination.
+
         Args:
             index (int): The current start index.
             page_size (int): The number of items per page.
-        
+
         Returns:
-            Dict[str, Any]: A dictionary containing pagination information and the data.
+            Dict[str, Any]: A dictionary containing pagination
+            information and the data.
         """
-        assert isinstance(index, int) and index >= 0, "index must be a non-negative integer"
-        assert isinstance(page_size, int) and page_size > 0, "page_size must be a positive integer"
+        assert isinstance(index, int) and index >= 0,
+        "index must be a non-negative integer"
+        assert isinstance(page_size, int) and page_size > 0,
+        "page_size must be a positive integer"
 
         indexed_dataset = self.indexed_dataset()
         data = []
@@ -74,7 +83,8 @@ class Server:
                 data.append(indexed_dataset[current_index])
             current_index += 1
 
-        next_index = current_index if current_index < len(indexed_dataset) else None
+        next_index = current_index if current_index < len(indexed_dataset)
+        else None
 
         return {
             "index": index,
@@ -82,4 +92,3 @@ class Server:
             "page_size": len(data),
             "next_index": next_index
         }
-
