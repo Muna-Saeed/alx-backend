@@ -68,7 +68,7 @@ class Server:
         Returns:
             Dict[str, Any]: A dictionary containing pagination
             information and the data.
-        """ 
+        """
         assert (
                 isinstance(index, int) and index >= 0
                 ), "index must be a non-negative integer"
