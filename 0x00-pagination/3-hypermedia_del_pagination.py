@@ -69,10 +69,12 @@ class Server:
             Dict[str, Any]: A dictionary containing pagination
             information and the data.
         """
-        assert isinstance(index, int) and index >= 0,
-        "index must be a non-negative integer"
-        assert isinstance(page_size, int) and page_size > 0,
-        "page_size must be a positive integer"
+        assert (
+                isinstance(index, int) and index >= 0
+                ), "index must be a non-negative integer"
+        assert (
+                isinstance(page_size, int) and page_size > 0
+                ), "page_size must be a positive integer"
 
         indexed_dataset = self.indexed_dataset()
         data = []
