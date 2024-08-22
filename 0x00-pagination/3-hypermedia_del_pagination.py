@@ -54,7 +54,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(
-            self, index: int = 0,
+            self, index: int = None,
             page_size: int = 10
             ) -> Dict[str, Any]:
         """
@@ -69,6 +69,10 @@ class Server:
             Dict[str, Any]: A dictionary containing pagination
             information and the data.
         """
+        # Use 0 as the default value if index is None
+        if index is None:
+            index = 0
+            
         assert (
                 isinstance(index, int) and index >= 0
                 ), "index must be a non-negative integer"
