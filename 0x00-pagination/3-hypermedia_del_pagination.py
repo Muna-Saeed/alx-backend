@@ -4,7 +4,7 @@ Deletion-resilient hypermedia pagination
 """
 
 import csv
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
